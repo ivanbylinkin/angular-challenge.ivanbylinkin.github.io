@@ -30,4 +30,9 @@ challengeApp.controller('NavCtrl',['NavList',function(NavList){
     var allLists = navigation.updateList();
     self.list = allLists.list;
     self.additional = allLists.additional;
+    
+    // add the ability to trigger the off-canvas
+    $('[data-toggle=offcanvas]').click(function() {
+        $('.row-offcanvas').toggleClass('active');
+    });
 }]);
