@@ -6,6 +6,10 @@ challengeApp.factory('NavList',['$location','ListData',function($location,ListDa
         // public scope
         this.updateList = function(){
             var url = geturl();
+            if (!url.length){ 
+                $location.path('/');
+                url = '/';
+            }
             // clear the previous links
             list.length = 0;
             additional.length = 0;
