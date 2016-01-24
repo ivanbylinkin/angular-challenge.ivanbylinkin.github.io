@@ -1,0 +1,74 @@
+/* contains custom styles for the application */
+
+/* sidebar */
+.sidebar hr{
+    margin: 0;
+    border-top: 0.125em solid #ccc;
+}
+
+/* assignment tool */
+button.choices{
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+button.btn-selected{
+    background-color: #88CC88!important;
+}
+button.btn-full-span{
+    width: 100%;
+    margin: 0.5em 0;
+}
+.text-selected{
+    color: #88CC88!important;
+}
+
+/* category editor */
+button.editor-choices{
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+button.editor-choices:hover{
+    background-color: #d9534f;
+}
+
+/* text */
+.text-underline{
+    text-decoration: underline!important;
+}
+
+/* sorted hierarchical list */
+/* used css from: https://jsfiddle.net/u3gd85cj/ */
+.just-padding {
+    padding: 15px;
+}
+
+.list-group.list-group-root {
+    padding: 0;
+    overflow: hidden;
+}
+
+.list-group.list-group-root .list-group {
+    margin-bottom: 0;
+}
+
+.list-group.list-group-root .list-group-item {
+    border-radius: 0;
+    border-width: 1px 0 0 0;
+}
+
+.list-group.list-group-root > .list-group-item:first-child {
+    border-top-width: 0;
+}
+
+.list-group.list-group-root > .list-group > .list-group-item {
+    padding-left: 30px;
+    background-color: #FFD1AA;
+}
+
+.list-group.list-group-root > .list-group > .list-group > .list-group-item {
+    padding-left: 45px;
+}
+
+.project-details li{
+    cursor: pointer;
+}
