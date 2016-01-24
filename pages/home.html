@@ -1,0 +1,16 @@
+<h1 class="page-header">Angular JS Challenge <small>created by Ivan Bylinkin</small></h1>
+
+<p>Welcome to the Angular JS Challenge for ActualFood</p>
+
+<p>This app allows you to create, edit, delete, and sort through a hierarchical list</p>
+
+<p data-ng-if="main.list.length">From here you can do a number of things.</p>
+<ul class="unstyled-list">
+    <li>You can create new data using the "Create Project" link in the top right corner.</li>
+    <li>You can edit the available departments/resources using the "Edit Categories" link in the top right corner.</li>
+    <li>You can select a sorting method to the side.</li>
+</ul>
+    
+
+<p data-ng-if="!main.list.length">It appears that you do not have any data to sort.</p>
+<p data-ng-if="!main.list.length">Please create some data using the <a href="#/" ng-click="main.assign()">assignment tool</a> to get started.</p>

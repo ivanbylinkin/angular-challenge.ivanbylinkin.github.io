@@ -1,0 +1,57 @@
+<uib-alert data-ng-if="assign.alerts.optional" data-type="{{ assign.alerts.optional.type }}"> 
+    <p data-ng-if="assign.alerts.optional.fieldsMsg" data-ng-bind="assign.alerts.optional.fieldsMsg"></p>
+    <p data-ng-if="assign.alerts.optional.resourceMsg" data-ng-bind="assign.alerts.optional.resourceMsg"></p>
+    <p><strong>If you would still like to create this project, press "{{ assign.assignBtnText }}" again.</strong></p>
+</uib-alert>
+
+<div class="modal-header">
+    <h3 class="modal-title">Project Assignment</h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-sm-8">
+            <form name="assignment">
+                <div class="form-group">
+                    <label for="assignProjects">Project Name</label>
+                    <input type="text" name="Project Name" class="form-control" id="assignProjects" data-ng-model="assign.newProject.project" data-ng-required="true" placeholder="project name..." />
+                </div>
+                <div class="form-group">
+                    <label for="assignDeadlines">Deadline</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="Deadline" data-uib-datepicker-popup="{{ assign.deadlineFormat }}" data-ng-model="assign.newProject.deadline" is-open="assign.showCal" data-ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" readonly />
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-primary" ng-click="assign.showCal = !assign.showCal"><i class="fa fa-calendar"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="assignDepartment">Department</label>
+                    <div class="input-group">
+                        <select class="form-control" id="assignDepartment" name="Department" data-ng-options="department for department in assign.departments | orderBy:department" data-ng-model="assign.newProject.department" data-ng-required="true"></select>
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-primary" ng-click="assign.createChoice('newDept.html','DeptCreationCtrl as create','department')"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Resources</label>
+                    <button type="button" class="btn btn-primary btn-full-span" ng-click="assign.createChoice('newResource.html','ResourceCreationCtrl as create','resources')">Create Additional Resource</button>
+                    <button type="button" class="btn btn-default choices" data-ng-repeat="resource in assign.resources | orderBy:resource" data-ng-bind="resource" data-ng-class="{'btn-selected':assign.resourceAssigned(resource)}" ng-click="assign.toggleResource(resource)"></button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <br>
+            <p>Please fill out this form, starting with inputting the <strong>name of your project in the field to the left</strong>.</p>
+            <p>To choose a deadline, please <strong>click on the calendar icon</strong> to the left and <strong>choose a date using the popup calendar</strong>.</p>
+            <p>Use the dropdown to select a department, or <strong>add a new department by clicking on the <i class="fa fa-plus"></i> icon</strong> to the left.</p>
+            <br>
+            <p><strong>Select one or more resources</strong> to assign to this project <strong>by clicking on a resource's name. <span class="text-selected">Green</span> means that resource has been assigned.</strong></p>
+            <p>You can <strong>add a new resource by pressing on the "Create Additional Resource"</strong> button.</p>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-ng-click="assign.ok(assignment.$error.required)" data-ng-bind="assign.assignBtnText"></button>
+    <button class="btn btn-danger" type="button" data-ng-click="assign.cancel()">Cancel</button>
+</div>

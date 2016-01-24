@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h3 class="modal-title">Category Editor <i class="fa fa-gear"></i></h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="form-group">
+                <label for="createDept">Departments</label>
+                <button type="button" class="btn btn-primary btn-full-span" ng-click="editor.createChoice('newDept.html','DeptCreationCtrl as create','departments')">Create Additional Department</button>
+                <button type="button" class="btn btn-default editor-choices" data-uib-tooltip="remove" data-tooltip-append-to-body="true" data-ng-repeat="department in editor.departments | orderBy:department" data-ng-bind="department" ng-click="editor.removeCategory('departments',department)"></button>
+            </div>
+            <div class="form-group">
+                <label for="createDept">Resources</label>
+                <button type="button" class="btn btn-primary btn-full-span" ng-click="editor.createChoice('newResource.html','ResourceCreationCtrl as create','resources')">Create Additional Resources</button>
+                <button type="button" class="btn btn-default editor-choices" data-uib-tooltip="remove" data-tooltip-append-to-body="true" data-ng-repeat="resource in editor.resources | orderBy:resource" data-ng-bind="resource" ng-click="editor.removeCategory('resources',resource)"></button>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <br><br>
+            <p>Using this editor you can add or remove departments and resources.</p>
+            <p><strong>Removing Choice:</strong> to remove an option simply click on the department/resource you want to remove.</p>
+            <p><strong>Adding Choice:</strong> to add an option simply click on the corresponding <span class="text-primary">blue button</span>.</p>
+            <p><strong>NOTE: removing an option will remove that option from the choices in the assignment form.</strong></p>
+            <p><strong>Removing departments will cause projects with that department to change to an "Unknown" department, while removing a resource will remove that resource from all projects.</strong></p>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" type="button" data-ng-click="editor.cancel()">Close</button>
+</div>

@@ -1,0 +1,23 @@
+{
+  "name": "angular-challenge",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Ivan Bylinkin <ivanbylinkin@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.5.0",
+    "bootstrap": "~3.3.6",
+    "angular-ui-router": "~0.2.15"
+  }
+}
