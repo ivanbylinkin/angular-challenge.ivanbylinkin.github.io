@@ -126,6 +126,7 @@ challengeApp.controller('SecondaryLevelSort',['$stateParams','$timeout','$locati
     };
     // setup edit operation
     self.edit = function(project){
+        console.log(project);
         var modalInstance = $uibModal.open({
             animation: true,
             size: 'lg',
