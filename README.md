@@ -1,7 +1,7 @@
 # angular-challenge.ivanbylinkin.github.io
 Demo site for the angular challenge
 
-Access the site: http://ivanbylinkin.github.io/angular-challenge.ivanbylinkin.github.io/
+Access the site: http://ivanbylinkin.github.io/angular-challenge.ivanbylinkin.github.io/#/
 
 ##How & Why
 
