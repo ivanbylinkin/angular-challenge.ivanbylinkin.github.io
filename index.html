@@ -48,13 +48,18 @@
         </nav>
 
         <div class="container-fluid">
-            <div class="row" data-ng-controller="NavCtrl as nav">
-                <div class="col-sm-3 col-md-2 sidebar">
+            <div class="row row-offcanvas row-offcanvas-left" data-ng-controller="NavCtrl as nav">
+                <div class="col-sm-3 col-md-2 sidebar sidebar-offcanvas" id="sidebar" role="navigation">
                     <div data-nav-section data-section-title="Sort By" data-list="nav.list"></div>
                     <div data-nav-section data-section-title="Additional View By" data-list="nav.additional"></div>
                 </div>
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <!--toggle sidebar button for mobile devices -->
+                <p class="visible-xs">
+                    <button type="button" class="btn btn-primary btn-xs pull-right" data-toggle="offcanvas">Sort Nav</button>
+                </p>
+                <br>
                 <div data-ui-view></div>
             </div>
         </div>
