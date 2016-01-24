@@ -97,7 +97,6 @@ challengeApp.controller('SecondaryLevelSort',['$stateParams','$timeout','$locati
     var factory = new ListData();
     self.list = factory.formattedList();
     self.topLevel = $stateParams.topLevel;
-    console.log(self.list);
     // setup alerts
     self.alerts = {};
     // setup delete operation
