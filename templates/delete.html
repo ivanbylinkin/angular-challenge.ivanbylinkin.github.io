@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h3 class="modal-title">
+        Delete Project: {{ deleted.project }}
+        <div class="pull-right">
+            <button class="btn btn-danger" type="button" data-ng-click="deleted.delete()">Delete</button>
+            <button class="btn btn-default" type="button" data-ng-click="deleted.cancel()">Cancel</button>
+        </div>
+    </h3>
+</div>
+<div class="modal-body">
+    <p class="text-danger">Are you sure you want to delete this project?</p>
+    <p>This operation <strong>cannot be undone</strong>
+    
+    <h4><u>Project Details</u></h4>
+    <div class="well">
+        <div class="form-group">
+            <label>Project Name</label>
+            <p data-ng-bind="deleted.details.project"></p>
+        </div>
+        <div class="form-group">
+            <label>Deadline</label>
+            <p>{{ deleted.details.deadline | date:'shortDate' }}</p>
+        </div>
+        <div class="form-group">
+            <label>Department</label>
+            <p data-ng-bind="deleted.details.department"></p>
+        </div>
+        <div class="form-group">
+            <label>Resources</label><br>
+            <button type="button" class="btn btn-default choices" data-ng-repeat="resource in deleted.details.resources | orderBy:resource" data-ng-bind="resource"></button>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger" type="button" data-ng-click="deleted.delete()">Delete</button>
+    <button class="btn btn-default" type="button" data-ng-click="deleted.cancel()">Cancel</button>
+</div>

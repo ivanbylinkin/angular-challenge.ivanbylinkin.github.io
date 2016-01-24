@@ -1,0 +1,27 @@
+<uib-alert data-ng-if="view.alerts.deleted" data-type="{{ view.alerts.deleted.type }}"> {{ view.alerts.deleted.msg }} </uib-alert>
+<uib-alert data-ng-if="view.alerts.edited" data-type="{{ view.alerts.edited.type }}"> {{ view.alerts.edited.msg }} </uib-alert>
+
+<div class="row" data-ng-if="view.previous">
+    <div class="col-sm-12">
+        <a data-ng-href="{{ view.previous.link }}" class="btn btn-default pull-right">Return to Resource View</a>
+    </div>
+</div>
+
+<div class="just-padding">    
+    <ul class="list-group list-group-root well">
+        <li class="list-group-item active">
+            <span data-ng-bind="view.project.project"></span>
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default btn-xs" data-ng-click="view.edit(root)" data-uib-tooltip="edit" data-tooltip-append-to-body="true"><i class="fa fa-pencil"></i></button>
+                <button type="button" class="btn btn-danger btn-xs" data-ng-click="view.delete(root)" data-uib-tooltip="delete" data-tooltip-append-to-body="true"><i class="fa fa-trash"></i></button>
+            </div>
+        </li>
+        <li class="list-group">
+            <ul class="list-group">
+                <li class="list-group-item" data-ng-bind="'Dept: '+view.project.department"></li>
+                <li class="list-group-item">Deadline: {{ view.project.deadline | date:'MMMM dd, yyyy hh:mm:ss' }}</li>
+                <li class="list-group-item" data-ng-repeat="resource in view.project.resources" data-ng-bind="'Resource: '+resource"></li>
+            </ul>
+        </li>
+    </ul>
+</div>

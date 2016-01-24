@@ -1,0 +1,7 @@
+<h4 ng-bind="title"></h4>
+<hr />
+<ul class="nav nav-sidebar">
+    <li data-ng-repeat="item in list" data-ng-class="{active:item.active,disabled:item.disabled}">
+        <a data-ng-href="{{ item.link }}" data-ng-click="updateActive(item)"><i data-ng-if="item.icon" class="fa fa-{{ item.icon }}"></i> {{ item.display }}</a>
+    </li>
+</ul>

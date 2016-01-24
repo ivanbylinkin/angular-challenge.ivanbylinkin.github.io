@@ -1,0 +1,44 @@
+<uib-alert data-ng-if="sorted.alerts.deleted" data-type="{{ sorted.alerts.deleted.type }}"> {{ sorted.alerts.deleted.msg }} </uib-alert>
+<uib-alert data-ng-if="sorted.alerts.edited" data-type="{{ sorted.alerts.edited.type }}"> {{ sorted.alerts.edited.msg }} </uib-alert>
+
+<div class="row" data-ng-if="sorted.previous">
+    <div class="col-sm-12">
+        <a data-ng-href="{{ sorted.previous.link }}" class="btn btn-default pull-right">Return to {{ sorted.previous.display }} View</a>
+    </div>
+</div>
+
+<div class="just-padding">    
+    <ul class="list-group list-group-root well">
+        <li class="list-group-item active" data-ng-repeat-start="root in sorted.list">
+            <span data-ng-if="sorted.isDate(root.root)">{{ root.root | date:'MMMM dd, yyyy hh:mm:ss' }}</span>
+            <span data-ng-if="!sorted.isDate(root.root)" data-ng-bind="root.root"></span>
+            <div class="btn-group pull-right" data-ng-if="sorted.topLevel == 'projects'">
+                <button type="button" class="btn btn-default btn-xs" data-ng-click="sorted.edit(root)" data-uib-tooltip="edit" data-tooltip-append-to-body="true"><i class="fa fa-pencil"></i></button>
+                <button type="button" class="btn btn-danger btn-xs" data-ng-click="sorted.delete(root)" data-uib-tooltip="delete" data-tooltip-append-to-body="true"><i class="fa fa-trash"></i></button>
+            </div>
+        </li>
+        <li class="list-group" data-ng-repeat="project in root.projects" data-ng-if="root.projects">
+            <div class="list-group-item project">
+                {{ 'Project: '+project.project }}
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-default btn-xs" data-ng-click="sorted.edit(project)" data-uib-tooltip="edit" data-tooltip-append-to-body="true"><i class="fa fa-pencil"></i></button>
+                    <button type="button" class="btn btn-danger btn-xs" data-ng-click="sorted.delete(project)" data-uib-tooltip="delete" data-tooltip-append-to-body="true"><i class="fa fa-trash"></i></button>
+                </div>
+            </div>
+            <ul class="list-group" data-ng-class="{'project-details':!root.resources}" data-ng-click="sorted.redirect(project.id)">
+                <li class="list-group-item" data-ng-bind="'Dept: '+project.department" data-ng-if="project.department"></li>
+                <li class="list-group-item" data-ng-if="project.deadline">Deadline: {{ project.deadline | date:'MMMM dd, yyyy hh:mm:ss' }}</li>
+                <li class="list-group-item" data-ng-bind="'Resource Total: '+project.totalresources" data-ng-if="!project.resources"></li>
+                <li class="list-group-item" data-ng-repeat="resource in project.resources" data-ng-bind="'Resource: '+resource"></li>
+            </ul>
+        </li>
+        <li class="list-group" data-ng-if="!root.projects" data-ng-repeat-end>
+            <ul class="list-group" data-ng-class="{'project-details':!root.resources}" data-ng-if="!root.projects" data-ng-click="sorted.redirect(root.id)">
+                <li class="list-group-item" data-ng-bind="'Dept: '+root.department"></li>
+                <li class="list-group-item">Deadline: {{ root.deadline | date:'MMMM dd, yyyy hh:mm:ss' }}</li>
+                <li class="list-group-item" data-ng-bind="'Resource Total: '+root.totalresources" data-ng-if="!root.resources"></li>
+                <li class="list-group-item" data-ng-repeat="resource in root.resources" data-ng-bind="'Resource: '+resource"></li>
+            </ul>
+        </li>
+    </ul>
+</div>
