@@ -97,6 +97,7 @@ challengeApp.controller('SecondaryLevelSort',['$stateParams','$timeout','$locati
     var factory = new ListData();
     self.list = factory.formattedList();
     self.topLevel = $stateParams.topLevel;
+    console.log(self.list);
     // setup alerts
     self.alerts = {};
     // setup delete operation
@@ -126,7 +127,6 @@ challengeApp.controller('SecondaryLevelSort',['$stateParams','$timeout','$locati
     };
     // setup edit operation
     self.edit = function(project){
-        console.log(project);
         var modalInstance = $uibModal.open({
             animation: true,
             size: 'lg',
