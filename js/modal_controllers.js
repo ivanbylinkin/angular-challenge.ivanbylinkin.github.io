@@ -84,6 +84,7 @@ challengeApp.controller('AssignmentCtrl',['$uibModal','$uibModalInstance','ListD
 challengeApp.controller('EditCtrl',['$uibModal','$uibModalInstance','ListData','listItem',function($uibModal,$uibModalInstance,ListData,listItem){
     // EditCtrl handles all edits using the assignment tool
     
+    console.log(listItem);
     // expose controller scope to entire controller
     var self = this;
     // get the parameters to provide choices
