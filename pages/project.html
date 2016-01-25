@@ -12,8 +12,8 @@
         <li class="list-group-item active">
             <span data-ng-bind="view.project.project"></span>
             <div class="btn-group pull-right">
-                <button type="button" class="btn btn-default btn-xs" data-ng-click="view.edit(root)" data-uib-tooltip="edit" data-tooltip-append-to-body="true"><i class="fa fa-pencil"></i></button>
-                <button type="button" class="btn btn-danger btn-xs" data-ng-click="view.delete(root)" data-uib-tooltip="delete" data-tooltip-append-to-body="true"><i class="fa fa-trash"></i></button>
+                <button type="button" class="btn btn-default btn-xs" data-ng-click="view.edit(view.project)" data-uib-tooltip="edit" data-tooltip-append-to-body="true"><i class="fa fa-pencil"></i></button>
+                <button type="button" class="btn btn-danger btn-xs" data-ng-click="view.delete(view.project)" data-uib-tooltip="delete" data-tooltip-append-to-body="true"><i class="fa fa-trash"></i></button>
             </div>
         </li>
         <li class="list-group">
